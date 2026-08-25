@@ -3,3 +3,8 @@ dist/
 coverage/
 *.tsbuildinfo
 .DS_Store
+
+# pnpm may create self-links when package-local commands run inside this workspace.
+/packages/core/core
+/packages/targets-pi/targets-pi
+/packages/targets-opencode2/targets-opencode2

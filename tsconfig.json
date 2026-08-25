@@ -1,0 +1,9 @@
+{
+    "files": [],
+    "references": [
+        { "path": "./packages/core" },
+        { "path": "./packages/targets-pi" },
+        { "path": "./packages/targets-opencode2" },
+        { "path": "./packages/cli" }
+    ]
+}

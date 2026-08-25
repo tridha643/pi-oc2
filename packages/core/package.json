@@ -1,0 +1,70 @@
+{
+  "name": "@pi-oc2/core",
+  "version": "0.1.0",
+  "description": "Static Pi package analysis and deterministic portability contracts.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/*.test.*",
+    "!dist/.tsbuildinfo"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./analysis": {
+      "types": "./dist/analyze-pi-package.d.ts",
+      "import": "./dist/analyze-pi-package.js"
+    },
+    "./ast": {
+      "types": "./dist/analyze-pi-extension-ast.d.ts",
+      "import": "./dist/analyze-pi-extension-ast.js"
+    },
+    "./capabilities": {
+      "types": "./dist/resolve-port-capabilities.d.ts",
+      "import": "./dist/resolve-port-capabilities.js"
+    },
+    "./domain": {
+      "types": "./dist/core-domain.d.ts",
+      "import": "./dist/core-domain.js"
+    },
+    "./manifest": {
+      "types": "./dist/portability-manifest.d.ts",
+      "import": "./dist/portability-manifest.js"
+    },
+    "./schema": {
+      "types": "./dist/typebox-schema-ast.d.ts",
+      "import": "./dist/typebox-schema-ast.js"
+    },
+    "./serialization": {
+      "types": "./dist/deterministic-artifacts.d.ts",
+      "import": "./dist/deterministic-artifacts.js"
+    },
+    "./skills": {
+      "types": "./dist/agent-skill.d.ts",
+      "import": "./dist/agent-skill.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root . --config vitest.config.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit --composite false --pretty false",
+    "verify": "pnpm typecheck && pnpm test"
+  },
+  "dependencies": {
+    "tinyglobby": "^0.2.17",
+    "typescript-compiler": "npm:typescript@^5.9.2",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  }
+}

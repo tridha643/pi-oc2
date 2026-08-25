@@ -1,0 +1,15 @@
+{
+    "extends": "../../tsconfig.base.json",
+    "compilerOptions": {
+        "rootDir": "src",
+        "outDir": "dist",
+        "tsBuildInfoFile": ".tsbuildinfo",
+        "types": ["node", "vitest/globals"]
+    },
+    "include": ["src/**/*.ts"],
+    "references": [
+        { "path": "../core" },
+        { "path": "../targets-pi" },
+        { "path": "../targets-opencode2" }
+    ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@pi-oc2/target-opencode2",
+  "version": "0.1.0",
+  "description": "Deterministic native OpenCode 2 target generator.",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/*.test.*",
+    "!dist/.tsbuildinfo"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run --root . --config vitest.config.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit --composite false --pretty false",
+    "verify": "pnpm typecheck && pnpm test"
+  },
+  "dependencies": {
+    "@pi-oc2/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "0.0.0-dev-18204",
+    "@types/node": "^24.5.2",
+    "effect": "4.0.0-rc.111",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  }
+}

@@ -1,0 +1,30 @@
+{
+    "name": "pi-oc2-workspace",
+    "version": "0.1.0",
+    "private": true,
+    "description": "Deterministic Pi package analysis and native Pi/OpenCode 2 plugin generation.",
+    "keywords": ["pi-package", "opencode", "codegen"],
+    "type": "module",
+    "packageManager": "pnpm@10.33.4",
+    "engines": {
+        "node": ">=20.19"
+    },
+    "scripts": {
+        "build": "tsc -b",
+        "clean": "tsc -b --clean && rm -rf coverage",
+        "pioc": "node packages/cli/dist/bin/pioc.js",
+        "test": "pnpm build && vitest run",
+        "test:e2e:hosts": "node scripts/e2e-hosts.mjs",
+        "test:watch": "vitest",
+        "typecheck": "tsc -b --pretty false",
+        "verify": "pnpm typecheck && pnpm test"
+    },
+    "pi": {
+        "skills": ["./packages/cli/skills"]
+    },
+    "devDependencies": {
+        "@types/node": "^24.5.2",
+        "typescript": "7.0.2",
+        "vitest": "4.1.11"
+    }
+}
